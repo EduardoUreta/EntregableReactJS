@@ -1,0 +1,14 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: #f5f7cf;
+    background-image: linear-gradient(0deg, #f5f7cf 0%, #dff3f3 100%);
+  }
+
+  html{
+    background: rgb(32, 2, 2);
+  }
+  

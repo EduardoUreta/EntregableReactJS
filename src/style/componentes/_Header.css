@@ -1,0 +1,42 @@
+.header {
+  color: black;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto auto auto;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.header-logo {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-right: 1rem;
+}

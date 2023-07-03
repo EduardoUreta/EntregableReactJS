@@ -1,0 +1,15 @@
+.div-carrito{
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.carrito{
+    width: 40px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.carrito:hover{
+    transform: scale(1.2) translateY(10%);
+}
