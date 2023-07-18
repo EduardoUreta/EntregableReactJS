@@ -1,0 +1,34 @@
+protocolo / dominio / endpoints
+
+url: https://api.coderhouse.com/alumnos
+
+Pueden haber variables estaticas o dinámicas
+
+
+
+como adjuntar parametros en la URL?
+
+con Query params
+
+EJ: puedo hacer una petición de tipo GET en esa api
+
+    GET / alumnos / id = number
+        el signo de ? significa el inicio de busqueda del parametro
+    https://api.coderhouse.com/alumnos?id=41234
+
+    significa que estoy buscando el parametro id 41234
+    y me devuelve la información de esa id
+
+    y si quiero buscar 2 parametros, le agrego el &
+
+    https://api.coderhouse.com/alumnos?comision=55245&limit=10
+
+----------------------------------------------
+    Puedo definir un Parametro Dinámico por URL:
+
+    https://api.coderhouse.com/alumnos/{id}
+
+    Entonces despues simplemente le paso:
+    https://api.coderhouse.com/alumnos/41234
+
+------------------------------------------------------
