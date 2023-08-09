@@ -40,3 +40,8 @@
   text-transform: uppercase;
   margin-right: 1rem;
 }
+
+.custom-font{
+  font-family: 'Lora', serif;
+  font-weight: 100;
+}

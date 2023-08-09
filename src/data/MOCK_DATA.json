@@ -5,7 +5,8 @@
         "descripcion": "El mejor producto",
         "precio": 1500,
         "img": "https://dummyimage.com/200x200/000/fff",
-        "category": "verduleria"
+        "category": "verduleria",
+        "stock": 10
     },
     {
         "id": 2, 
@@ -13,7 +14,8 @@
         "descripcion": "El mejor producto",
         "precio": 2500,
         "img": "https://dummyimage.com/200x200/000/fff",
-        "category": "verduleria"
+        "category": "verduleria",
+        "stock": 12
     },
     {
         "id": 3, 
@@ -21,7 +23,8 @@
         "descripcion": "El mejor producto",
         "precio": 3500,
         "img": "https://dummyimage.com/200x200/000/fff",
-        "category": "panaderia"
+        "category": "panaderia",
+        "stock": 8
     },
     {
         "id": 4, 
@@ -29,7 +32,8 @@
         "descripcion": "El mejor producto",
         "precio": 4500,
         "img": "https://dummyimage.com/200x200/000/fff",
-        "category": "panaderia"
+        "category": "panaderia",
+        "stock": 7
     },
     {
         "id": 5, 
@@ -37,7 +41,8 @@
         "descripcion": "El mejor producto",
         "precio": 5500,
         "img": "https://dummyimage.com/200x200/000/fff",
-        "category": "carniceria"
+        "category": "carniceria",
+        "stock": 4
     },
     {
         "id": 6, 
@@ -45,6 +50,7 @@
         "descripcion": "El mejor producto",
         "precio": 1500,
         "img": "https://dummyimage.com/200x200/000/fff",
-        "category": "perfumeria"
+        "category": "perfumeria",
+        "stock": 15
     }
 ]

@@ -1,0 +1,9 @@
+.saludo{
+    max-width: 900px;
+    margin: auto;
+    padding-bottom: 10px;
+    font-family:'Lora', serif;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+}

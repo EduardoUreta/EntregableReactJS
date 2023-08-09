@@ -1,11 +1,9 @@
 .saludo{
-    background: red;
-    max-width: 350px;
-    border-radius: 20% 5px;
+    max-width: 900px;
     margin: auto;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding-bottom: 10px;
+    font-family:'Lora', serif;
     font-weight: 700;
-    font-style: italic;
 }
 .catalogo-container{
     background-color: #f5f7cf;
@@ -18,3 +16,7 @@
     text-align: center;
   }
   
+.dark-mode{
+    background-color: black;
+    color: yellow;
+}

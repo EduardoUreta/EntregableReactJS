@@ -2,6 +2,8 @@
 @import './componentes/_ItemListContainer.css';
 @import './componentes/_BotonBienvenida.css';
 @import './componentes/_CartWidget.css';
+@import './componentes/_Acordion.css';
+@import './componentes/_Footer.css';
 
 @import './variables/_general.css';
 

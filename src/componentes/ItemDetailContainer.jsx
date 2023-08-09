@@ -1,33 +1,52 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../helpers/pedirDatos"
 import { useParams } from "react-router-dom"
 import { ItemDetail } from "./ItemDetail"
+import { Loader } from "./Loader"
+import { NotFound } from "./NotFound"
 
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../firebase/config"
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [itemExists, setItemExists] = useState(true)
 
     const {itemId} = useParams()
-    console.log(itemId);
-    console.log(item);
 
     useEffect(() => {
         setLoading(true)
+        setItemExists(true)
 
-        pedirDatos()
-            .then(respuesta => {
-                setItem(respuesta.find(producto => producto.id === Number(itemId)))
+        // 1- Armar la Ref
+        const itemRef = doc(db, "productos", itemId)
+        // 2- Llamar la Ref
+        getDoc(itemRef)
+            .then((doc) => {
+                if (doc.exists()) {
+                setItem({
+                    id: doc.id,
+                    ...doc.data()
+                });
+                } else {
+                setItemExists(false); 
+                }
             })
+            .catch(e => console.log(e))
             .finally(() => setLoading(false))
-    }, [])
+    }, [itemId])
 
     return (
+        
         <div>
             {
             loading 
-            ? <h2 className="text-center">Cargando....</h2>
-                : <ItemDetail item={item}/>
+            ? (<Loader/>
+                ) : itemExists ? (
+                    <ItemDetail item={item}/>
+                ) : (
+                    <NotFound/>
+                )
             }
         </div>
     )
