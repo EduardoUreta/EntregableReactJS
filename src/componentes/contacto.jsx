@@ -39,12 +39,17 @@ export const Contacto = () => {
                     <Form>
                         <div className="form-group">
                             <label htmlFor="name">Nombre</label>
-                            <Field type="text" name="name" className="form-control" />
+                            <Field type="text" name="name" className="form-control" placeholder="Ingresa tu nombre"/>
                             <ErrorMessage name="name" component="div" className="text-danger" />
                         </div>
                         <div className="form-group">
+                            <label htmlFor="name">Apellido</label>
+                            <Field type="text" name="surname" className="form-control" placeholder="Ingresa tu apellido"/>
+                            <ErrorMessage name="surname" component="div" className="text-danger" />
+                        </div>
+                        <div className="form-group">
                             <label htmlFor="email">Correo Electrónico</label>
-                            <Field type="email" name="email" className="form-control" />
+                            <Field type="email" name="email" className="form-control" placeholder="Ingresa tu correo"/>
                             <ErrorMessage name="email" component="div" className="text-danger" />
                         </div>
                         <div className="form-group">

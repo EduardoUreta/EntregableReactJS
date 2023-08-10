@@ -15,15 +15,19 @@ const schema = Yup.object().shape({
         .min(3, "El nombre es demasiado corto")
         .max(25,"El nombre es demasiado largo")
         .required("Este campo es obligatorio"),
-    direccion: Yup.string()
+    apellido: Yup.string()
         .min(3, "El nombre es demasiado corto")
         .max(25,"El nombre es demasiado largo")
         .required("Este campo es obligatorio"),
+    telefono: Yup.string()
+        .matches(/^\d{10}$/, 'Ingresa un número de teléfono válido de 10 dígitos')
+        .required('Campo requerido'),
     email: Yup.string()
         .email("El email es invalido")
         .required("Este campo es obligatorio"),
-        // escribir 2 veces el correo
-        // Validar que sean los mismos
+    confirmarEmail: Yup.string()
+        .oneOf([Yup.ref('email'), null], 'Los correos electrónicos no coinciden')
+        .required('Campo requerido'),
 })
 
 export const Checkout = () => {
@@ -103,8 +107,10 @@ export const Checkout = () => {
             <Formik
                 initialValues={{
                     nombre: '',
-                    direccion: '',
-                    email: ''
+                    apellido: '',
+                    telefono: '',
+                    email: '',
+                    confirmarEmail: '',
                 }}
                 onSubmit={handleSubmit}
                 validationSchema={schema}
@@ -113,11 +119,15 @@ export const Checkout = () => {
                     <Form className="m-3 text-center">
                         <Field className="form-control my-2" type="text" name="nombre" placeholder="Ingresa tu nombre..." />
                         <ErrorMessage name="nombre" component="div" className="text-danger"/>
-                        <Field className="form-control my-2" type="text" name="direccion" placeholder="Ingresa tu dirección..." />
-                        <ErrorMessage name="direccion" component="div" className="text-danger" />
+                        <Field className="form-control my-2" type="text" name="apellido" placeholder="Ingresa tu apellido..." />
+                        <ErrorMessage name="apellido" component="div" className="text-danger" />
+                        <Field className="form-control my-2" type="text" name="telefono" placeholder="Ingresa tu telefono..." />
+                        <ErrorMessage name="telefono" component="div" className="text-danger" />
                         <Field className="form-control my-2" type="email" name="email" placeholder="Ingresa tu email..." />
                         <ErrorMessage name="email" component="div" className="text-danger" />
-                        <button className="btn btn-success mt-3" disabled={loading}>Enviar</button>
+                        <Field className="form-control my-2" type="email" name="confirmarEmail" placeholder="Confirma tu email..." />
+                        <ErrorMessage name="confirmarEmail" component="div" className="text-danger" />
+                        <button className="btn btn-success mt-3" disabled={loading}>Realizar Compra</button>
                     </Form>
                 )}
             </Formik>
