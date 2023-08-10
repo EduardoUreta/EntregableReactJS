@@ -9,7 +9,7 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import { ItemDetailContainer } from './componentes/ItemDetailContainer'
 import { CartProvider } from './context/CartContext'
 import { DarkModeProvider } from './context/DarkModeContext'
-import { Contacto } from './componentes/contacto'
+import { Contacto } from './componentes/Contacto'
 import { CartView } from './componentes/CartView'
 import { Checkout } from './componentes/Checkout'
 import { Error404 } from './componentes/Error404'
@@ -28,7 +28,7 @@ function App() {
         <BrowserRouter>
         {/* Controlo la navegabilidad */}
 
-          <div>
+          <div className='custom-font'>
             <Routes>
               <Route path="*" element={<Header/>}/>
             </Routes>
@@ -43,9 +43,8 @@ function App() {
                   <Productos/>
               </div>
               }/>
-              <Route exact path="/productos/:categoryId" element={<Productos/>}></Route>
-              <Route exact path="/detail/:itemId" element={<ItemDetailContainer/>}></Route>
-
+              <Route path="/productos/:categoryId" element={<Productos/>}></Route>
+              <Route path="/detail/:itemId" element={<ItemDetailContainer/>}></Route>
               
               <Route exact path='/contacto' element={<Contacto/>}></Route>
               <Route exact path='/cart' element={<CartView/>}></Route>
@@ -55,12 +54,6 @@ function App() {
 
             </Routes>
             <Footer/>
-
-
-            {/* <PokeList/>
-            <PokeCard/> */}
-
-
           </div>
         </BrowserRouter>
       </CartProvider>

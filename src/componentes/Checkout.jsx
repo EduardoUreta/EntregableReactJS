@@ -28,23 +28,8 @@ const schema = Yup.object().shape({
 
 export const Checkout = () => {
 
-    // const [nombre, setNombre] = useState('')
-    // const [direccion, setDireccion] = useState('')
-    // const [email, setEmail] = useState('')
-
-    // const handleNombre = (e) => {
-    //     setNombre(e.target.value);
-    // }
-    // const handleDireccion = (e) => {
-    //     setDireccion(e.target.value);
-    // }
-    // const handleEmail = (e) => {
-    //     setEmail(e.target.value);
-    // }
     const { cart, totalCompra, vaciarCarrito } = useContext(CartContext)
-
     const [ loading, setLoading ] = useState(false) 
-
     const [orderId, setOrderId] = useState(null)
 
     const handleSubmit = async (values) => {
@@ -91,36 +76,8 @@ export const Checkout = () => {
             alert("Hay items sin stock")
         }
     setLoading(false)
-
-
-
-            // orden.items.forEach(item => {
-
-            //     const docRef = doc(db, "productos", item.id)
-
-            //     getDoc(docRef)
-            //         .then((doc)=>{
-            //             const stock = doc.data().stock
-
-            //             if (stock >= item.cantidad){
-            //                 updateDoc(docRef, {
-            //                     stock: stock - item.cantidad
-            //             })
-            //             } else{
-            //                 alert(`No hay stock de ${item.nombre}`)
-            //             }
-            //     })
-            // })
-
-        // const ordersRef = collection(db, "orders")
-
-        // addDoc(ordersRef, orden)
-        //     .then((doc) => {
-        //         console.log(doc.id);
-        //         vaciarCarrito();
-        //         setOrderId(doc.id)
-        //     })
     }
+
 
     if (orderId){
         return(
@@ -129,7 +86,7 @@ export const Checkout = () => {
                 <hr/>
                 <h3 className="text-center">Tu numero de orden es: <strong>{orderId}</strong></h3>
 
-                <Link to="/">Volver</Link>
+                <Link to="/" className="btn btn-secondary">Volver</Link>
             </div>
         )
     }
@@ -138,11 +95,10 @@ export const Checkout = () => {
         return <Navigate to="/"/>
     }
 
-
     return (
-        <div className="container">
-            <h2>Checkout</h2>
-            <hr/>
+        <div className="vh-25 d-flex justify-content-center align-items-center flex-column">
+            <h2 className="text-center text-blue-700 text-uppercase">Checkout</h2>
+            <hr />
 
             <Formik
                 initialValues={{
@@ -153,20 +109,18 @@ export const Checkout = () => {
                 onSubmit={handleSubmit}
                 validationSchema={schema}
             >
-                {() =>(
-                    <Form>
-                        <Field className="form-control my-2" type="text" name="nombre" placeholder="Ingresa tu nombre..."/>
-                        <ErrorMessage name="nombre" component="p"/>
-                        <Field className="form-control my-2" type="text" name="direccion" placeholder="Ingresa tu dirección..."/>
-                        <ErrorMessage name="direccion" component="p"/>
-                        <Field className="form-control my-2" type="email" name="email" placeholder="Ingresa tu email..."/>
-                        <ErrorMessage name="email" component="p"/>
-                        <button className="btn btn-success" disabled={loading}>Enviar</button>
+                {() => (
+                    <Form className="m-3 text-center">
+                        <Field className="form-control my-2" type="text" name="nombre" placeholder="Ingresa tu nombre..." />
+                        <ErrorMessage name="nombre" component="div" className="text-danger"/>
+                        <Field className="form-control my-2" type="text" name="direccion" placeholder="Ingresa tu dirección..." />
+                        <ErrorMessage name="direccion" component="div" className="text-danger" />
+                        <Field className="form-control my-2" type="email" name="email" placeholder="Ingresa tu email..." />
+                        <ErrorMessage name="email" component="div" className="text-danger" />
+                        <button className="btn btn-success mt-3" disabled={loading}>Enviar</button>
                     </Form>
                 )}
-
             </Formik>
-            
         </div>
     )
 }

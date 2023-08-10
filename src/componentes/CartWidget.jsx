@@ -10,7 +10,7 @@ export const CartWidget = () =>{
 
     return(
 
-        <Link to="/cart" className="text-white text-4x1 cursor-pointer flex gap-1 ">
+        <Link to="/cart" className="text-yellow-400 cursor-pointer flex gap-1 text-center justify-content-center">
             <BsCart3></BsCart3>
             <span>{totalCantidad()}</span>
         </Link>

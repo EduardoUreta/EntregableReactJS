@@ -1,39 +1,66 @@
-
-import { useContext, useEffect, useState } from "react";
-import { CartContext } from "../context/CartContext";
-
-
-////// Eventos /////
+import React from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { useState } from 'react';
 
 export const Contacto = () => {
-    // Acceder al dato dado por el proovedor del contexto
-    const { tutor } = useContext(CartContext) // Permite consumir un contexto
-    // Desestructuro
+    const [messageSent, setMessageSent] = useState(false);
+    const initialValues = {
+        name: '',
+        email: '',
+        message: ''
+    };
 
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().required('El nombre es requerido'),
+        email: Yup.string().email('Ingresa un correo electrónico válido').required('El correo electrónico es requerido'),
+        message: Yup.string().required('El mensaje es requerido')
+    });
 
+    const handleSubmit = (values, { setSubmitting }) => {
+        setSubmitting(false);
+        setMessageSent(true);
+    };
 
-    // Queremos contar la cantidad de Clicks en la pantalla
-
-    const clickear = (event) => {
-        console.log(event)
-    }
-    // Para que no se acumule en cada renderizado..
-    // Uso el use Effect
-
-    useEffect(() => {
-        window.addEventListener("click", clickear);
-        // Con esto, remuevo el evento
-        // Hay que agregar las referencias a la función
-        return () => {
-            window.removeEventListener("click", clickear)
-        }
-    }, [])
-
-
-    return(
-        <div onClick={clickear} className="container my-5">
-            <h2>Contacto</h2>
-            <h1>xd</h1>
+    return (
+        <div className="container">
+            <h2 className="text-center">Formulario de Contacto</h2>
+            {messageSent ? (
+                <div className="alert alert-success mt-3" role="alert">
+                    ¡Tu mensaje ha sido enviado exitosamente!
+                </div>
+            ) : null}
+            <Formik
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+            >
+                {({ isSubmitting }) => (
+                    <Form>
+                        <div className="form-group">
+                            <label htmlFor="name">Nombre</label>
+                            <Field type="text" name="name" className="form-control" />
+                            <ErrorMessage name="name" component="div" className="text-danger" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Correo Electrónico</label>
+                            <Field type="email" name="email" className="form-control" />
+                            <ErrorMessage name="email" component="div" className="text-danger" />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="message">Mensaje</label>
+                            <Field as="textarea" name="message" className="form-control" rows="4" />
+                            <ErrorMessage name="message" component="div" className="text-danger" />
+                        </div>
+                        <button type="submit" className="btn btn-success" disabled={isSubmitting}>
+                            Enviar
+                        </button>
+                        <br></br>
+                        <br></br>
+                    </Form>
+                )}
+            </Formik>
         </div>
     )
 }
+

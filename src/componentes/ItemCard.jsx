@@ -4,12 +4,13 @@ import Swal from "sweetalert2";
 const ItemCard = ({item}) => {
 
     return (
-        <div className="flex flex-col justify-content-center  align-items-center ">
-            <h4>{item.nombre}</h4>
-            <img src={item.img} alt={item.nombre}/>
-            <p>{item.descripcion}</p>
-            <p>Precio: ${item.precio}</p>
-
+        <div className="col-sm-4 col-md-3 col-lg-3 justify-content-around text-center">
+                <div key={item.id} className="">
+                    <img src={item.img} className="img-fluid img-thumbnail mx-auto"></img>
+                    <h1 className="text-bg-dark text-uppercase ">{item.nombre}</h1>
+                    <h6 className="text-bg-light">{item.descripcion}</h6>
+                    <h4 className="text-bg-light">${item.precio}</h4>
+                </div>
             {
                 item.stock >= 1 && item.stock <= 10 
                 ? 

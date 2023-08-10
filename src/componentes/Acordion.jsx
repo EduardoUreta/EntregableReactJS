@@ -35,6 +35,9 @@ export function Acordion({saludo}) {
             </Accordion.Item>
             </Accordion>
         </div>
+        <br></br>
+        <br></br>
     </div>
+
   );
 }

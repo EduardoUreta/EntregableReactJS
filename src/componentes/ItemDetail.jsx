@@ -2,7 +2,6 @@ import { CartContext } from "../context/CartContext";
 import { ItemCount } from "./ItemCount";
 import { useContext, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
-import { EjemploMemo } from "./EjemploMemo";
 
 export const ItemDetail = ({item}) => {
 
@@ -26,18 +25,16 @@ export const ItemDetail = ({item}) => {
     const fecha = useMemo(() => new Date(), [])
 
     return (
-        <div className="container my-5">
-            <h4>FYH: {fecha.toLocaleString()}</h4>
-            <h2>{item.nombre}</h2>
-            <img src={item.img} alt={item.nombre}/>
-            <p>{item.descripcion}</p> 
-            <p>{item.precio}</p>
-            <EjemploMemo/>
+        <div className="my-4 mb-4 text-center card w-25 m-auto">
+            <img src={item.img} alt={item.nombre} className="m-auto img-fluid img-thumbnail mx-auto "/>
+            <h2 className="text-bg-dark text-uppercase">{item.nombre}</h2>
+            <p className="text-bg-light">{item.descripcion}</p> 
+            <p className="text-bg-light">{item.precio}</p>
 
             {
                 isInCart(item.id)  
                     ? 
-                    <Link className="btn btn-success" to="/cart">Terminar mi compra</Link>
+                    <Link className="btn btn-success m-auto" to="/cart">Terminar mi compra</Link>
                     : <ItemCount 
                     max={item.stock}
                     counter={cantidad}
@@ -45,6 +42,11 @@ export const ItemDetail = ({item}) => {
                     agregar={handleAgregar}
                     />
             }
+            <br></br>
+            <div>
+                <Link className="btn btn-primary" to="/productos">Ver otros productos</Link>
+            </div>
+            <br></br>
         </div>
     )
 }
