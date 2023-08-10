@@ -74,6 +74,7 @@ export const Productos = () => {
                 </div>
               </div>
               <ItemList productos={productos} />
+              <br></br>
             </div>
           )}
         </div>

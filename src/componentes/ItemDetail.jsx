@@ -42,7 +42,8 @@ export const ItemDetail = ({item}) => {
                     agregar={handleAgregar}
                     />
             }
-            <br></br>
+            <hr/>
+
             <div>
                 <Link className="btn btn-primary" to="/productos">Ver otros productos</Link>
             </div>
