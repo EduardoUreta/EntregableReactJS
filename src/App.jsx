@@ -9,7 +9,7 @@ import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom"
 import { ItemDetailContainer } from './componentes/ItemDetailContainer'
 import { CartProvider } from './context/CartContext'
 import { DarkModeProvider } from './context/DarkModeContext'
-// import { Contacto } from './componentes/Contacto'
+import { Contacto } from './componentes/Contacto'
 import { CartView } from './componentes/CartView'
 import { Checkout } from './componentes/Checkout'
 import { Error404 } from './componentes/Error404'
@@ -46,7 +46,7 @@ function App() {
               <Route path="/productos/:categoryId" element={<Productos/>}></Route>
               <Route path="/detail/:itemId" element={<ItemDetailContainer/>}></Route>
               
-              {/* <Route exact path='/contacto' element={<Contacto/>}></Route> */}
+              <Route exact path='/contacto' element={<Contacto/>}></Route>
               <Route exact path='/cart' element={<CartView/>}></Route>
               <Route exact path='/checkout' element={<Checkout/>}></Route>
               <Route path="*" element={<Error404/>}></Route>
