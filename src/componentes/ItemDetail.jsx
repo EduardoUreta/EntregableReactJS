@@ -27,7 +27,7 @@ export const ItemDetail = ({item}) => {
     return (
         <div className="my-4 mb-4 text-center card w-25 m-auto">
             <img src={item.img} alt={item.nombre} className="m-auto img-fluid img-thumbnail mx-auto "/>
-            <h2 className="text-bg-dark text-uppercase">{item.nombre}</h2>
+            <h2 className="bg-black text-uppercase text-warning ">{item.nombre}</h2>
             <p className="text-bg-light">{item.descripcion}</p> 
             <p className="text-bg-light">{item.precio}</p>
 

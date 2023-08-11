@@ -7,14 +7,14 @@ const ItemCard = ({item}) => {
         <div className="col-sm-4 col-md-3 col-lg-3 justify-content-around text-center">
                 <div key={item.id} className="">
                     <img src={item.img} className="img-fluid img-thumbnail mx-auto"></img>
-                    <h1 className="text-bg-dark text-uppercase text-warning ">{item.nombre}</h1>
+                    <h1 className="bg-black text-uppercase text-warning ">{item.nombre}</h1>
                     <h6 className="text-bg-light">{item.descripcion}</h6>
                     <h4 className="text-bg-light">${item.precio}</h4>
                 </div>
             {
                 item.stock >= 1 && item.stock <= 10 
                 ? 
-                    <p className="text-red-500">Quedan sólo {item.stock} unidades!</p>
+                    <p className="text-red-500 bg-light">¡Quedan sólo {item.stock} unidades!</p>
                 : 
                     item.stock === 0 && null
             }
