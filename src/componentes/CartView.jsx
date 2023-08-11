@@ -3,6 +3,7 @@ import { CartContext } from "../context/CartContext"
 import { FaTrashAlt } from "react-icons/Fa"
 import { Link } from "react-router-dom";
 
+
 export const CartView = () => {
     const { cart, totalCompra, vaciarCarrito, removerDelCarrito } = useContext(CartContext)
 
