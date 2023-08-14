@@ -15,3 +15,10 @@ En contacto, hay un formulario de contacto para el cliente
 
 En sobre mí, envía a un error 404 - página no encontrada.
 
+## Video explicativo sitio web
+
+https://www.loom.com/share/684e575ea8a44229b6716a19a1fd07e5
+
+## Aspectos a mejorar
+
+El diseño y dar funcionalidades como ingreso de sesión, o guardar en LocalStorage
